@@ -1,0 +1,132 @@
+.map-page {
+  position: relative;
+  background-color: #1a1410;
+}
+
+.map-overlays {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.day-select-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(43, 29, 14, 0.9);
+  color: #faf6f0;
+  border: 1px solid #472e17;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.day-select-control select {
+  background-color: #2b1d0e;
+  color: #faf6f0;
+  border: 1px solid #472e17;
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.route-info {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: rgba(43, 29, 14, 0.9);
+  color: #faf6f0;
+  border: 1px solid #472e17;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.route-info-close {
+  color: #e8a33d;
+  text-decoration: none;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.route-info-close:hover {
+  color: #fff;
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 73px);
+  background-color: #0f0c09;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: #2b1d0e;
+  color: #faf6f0;
+}
+
+.leaflet-popup-content {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  color: #faf6f0;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: #faf6f0;
+}
+
+.leaflet-control-zoom a {
+  background-color: #2b1d0e;
+  color: #faf6f0;
+  border-color: #472e17 !important;
+}
+
+.leaflet-control-attribution {
+  background-color: rgba(26, 20, 16, 0.8) !important;
+  color: #d8cfc4 !important;
+}
+
+.leaflet-control-attribution a {
+  color: #e8a33d !important;
+}
+
+.bar-tooltip {
+  background-color: #2b1d0e;
+  color: #faf6f0;
+  border: 1px solid #472e17;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-weight: 600;
+  padding: 4px 10px;
+  box-shadow: none;
+}
+
+.bar-tooltip::before {
+  border-top-color: #2b1d0e;
+}
+
+.bar-popup-wrapper .leaflet-popup-content {
+  margin: 1rem 1.25rem;
+  font-weight: normal;
+}
+
+.bar-popup h3 {
+  margin: 0;
+  color: #e8a33d;
+  font-size: 1.3rem;
+}
+
+.bar-hours {
+  margin: 0.4rem 0 0;
+  color: #d8cfc4;
+  font-size: 0.95rem;
+}

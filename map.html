@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>denBruneLoype - Kart over barer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo"><a href="index.html" class="logo-link">denBruneLoype</a></h1>
+      <nav>
+        <ul>
+          <li><a href="index.html#hjem">Hjem</a></li>
+          <li><a href="index.html#om">Om</a></li>
+          <li><a href="loyper.html">Løyper</a></li>
+          <li><a href="index.html#kontakt">Kontakt</a></li>
+          <li id="admin-nav-item" style="display: none;"><a href="brukerforesporsler.html">Brukerforespørsler</a></li>
+          <li><a href="login.html" id="auth-nav-link">Logg inn</a></li>
+          <li><a href="map.html" class="nav-cta">Kart over barer</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-page">
+      <div id="map"></div>
+      <div class="map-overlays">
+        <div class="day-select-control">
+          <label for="day-select">Åpningstider:</label>
+          <select id="day-select">
+            <option value="man">Mandag</option>
+            <option value="tir">Tirsdag</option>
+            <option value="ons">Onsdag</option>
+            <option value="tor">Torsdag</option>
+            <option value="fre" selected>Fredag</option>
+            <option value="lor">Lørdag</option>
+            <option value="son">Søndag</option>
+          </select>
+        </div>
+        <div id="route-info" class="route-info">
+          <span id="route-info-name"></span>
+          <a href="map.html" class="route-info-close" aria-label="Lukk løype">&times;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/bars.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>

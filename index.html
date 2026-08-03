@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>denBruneLoype</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">denBruneLoype</h1>
+      <nav>
+        <ul>
+          <li><a href="#hjem">Hjem</a></li>
+          <li><a href="#om">Om</a></li>
+          <li><a href="loyper.html">Løyper</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li id="admin-nav-item" style="display: none;"><a href="brukerforesporsler.html">Brukerforespørsler</a></li>
+          <li><a href="login.html" id="auth-nav-link">Logg inn</a></li>
+          <li><a href="map.html" class="nav-cta">Kart over barer</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hjem" class="hero">
+      <div class="container">
+        <h2>Velkommen til denBruneLoype</h2>
+        <p>Din side for løype-informasjon og turer.</p>
+        <a href="map.html" class="btn">Se kart over barer</a>
+      </div>
+    </section>
+
+    <section id="om" class="content-section">
+      <div class="container">
+        <h3>Om oss</h3>
+        <p>Her kan du skrive litt om hva denBruneLoype handler om.</p>
+      </div>
+    </section>
+
+    <section id="kontakt" class="content-section">
+      <div class="container">
+        <h3>Kontakt</h3>
+        <p>Legg til kontaktinformasjon her.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 denBruneLoype</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabaseClient.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
