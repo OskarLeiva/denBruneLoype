@@ -31,7 +31,20 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo a:hover {
+  color: #f2e6d8;
 }
 
 .site-header nav ul {
