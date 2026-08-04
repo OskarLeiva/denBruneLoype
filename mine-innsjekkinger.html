@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>denBruneLoype - Glemt passord</title>
+  <title>denBruneLoype - Mine innsjekkinger</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/auth.css">
 </head>
@@ -27,20 +27,12 @@
   </header>
 
   <main>
-    <section class="auth-section">
-      <div class="auth-card">
-        <h3>Glemt passord</h3>
-        <form id="forgot-form">
-          <div class="auth-field">
-            <label for="identifier">Brukernavn eller e-post</label>
-            <input type="text" id="identifier" required>
-          </div>
-          <button type="submit" class="btn auth-submit">Send tilbakestillingslenke</button>
-        </form>
-        <div id="auth-message" class="auth-message"></div>
-        <div class="auth-links">
-          <a href="login.html">Tilbake til innlogging</a>
-        </div>
+    <section class="content-section">
+      <div class="container">
+        <h3>Mine innsjekkinger</h3>
+        <p id="checkin-summary"></p>
+        <ul class="pending-list" id="checkin-list"></ul>
+        <p id="checkin-empty" style="display: none;">Du har ikke sjekket inn noen steder ennå.</p>
       </div>
     </section>
   </main>
@@ -54,7 +46,7 @@
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="js/supabaseClient.js"></script>
   <script src="js/auth.js"></script>
-  <script src="js/glemt-passord.js"></script>
+  <script src="js/mine-innsjekkinger.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

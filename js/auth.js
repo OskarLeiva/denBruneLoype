@@ -100,6 +100,7 @@ async function getCurrentProfile() {
 async function initAuthNav() {
   const authLink = document.getElementById("auth-nav-link");
   const adminLink = document.getElementById("admin-nav-item");
+  const dashboardLink = document.getElementById("dashboard-nav-item");
   if (!authLink) return;
 
   const profile = await getCurrentProfile();
@@ -114,6 +115,9 @@ async function initAuthNav() {
 
     if (adminLink && profile.role === "admin") {
       adminLink.style.display = "";
+    }
+    if (dashboardLink) {
+      dashboardLink.style.display = "";
     }
   } else {
     authLink.textContent = "Logg inn";
