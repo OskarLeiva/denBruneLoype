@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const currentProfile = await getCurrentProfile();
+  const isAdmin = !!currentProfile && currentProfile.role === "admin";
 
-  const optionsContainer = document.getElementById("route-options");
   const publicContainer = document.getElementById("public-route-options");
   const privateContainer = document.getElementById("private-route-options");
-  const publicEmptyEl = document.getElementById("public-routes-empty");
   const privateEmptyEl = document.getElementById("private-routes-empty");
   const privateSection = document.getElementById("private-routes-section");
 
@@ -62,12 +61,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.appendChild(card);
   }
 
-  ROUTES.forEach((route) => renderRouteCard(optionsContainer, route));
-
   async function loadPublicRoutes() {
     publicContainer.innerHTML = "";
+    ROUTES.forEach((route) => renderRouteCard(publicContainer, route));
     const rows = await fetchPublicRoutes();
-    publicEmptyEl.style.display = rows.length === 0 ? "block" : "none";
     rows.forEach((row) => {
       renderRouteCard(publicContainer, customRouteToRouteShape(row), row.id);
     });
@@ -117,6 +114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const createClose = document.getElementById("create-route-close");
   const nameInput = document.getElementById("create-route-name");
   const publicCheckbox = document.getElementById("create-route-public");
+  const publicCheckboxField = document.getElementById("public-checkbox-field");
   const availableListEl = document.getElementById("available-bars-list");
   const selectedListEl = document.getElementById("selected-bars-list");
   const selectedCountEl = document.getElementById("selected-count");
@@ -176,6 +174,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     nameInput.value = "";
     publicCheckbox.checked = false;
+    publicCheckboxField.style.display = isAdmin ? "flex" : "none";
     selectedStops = [];
     errorEl.style.display = "none";
     renderBarPicker();
@@ -247,7 +246,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       await createCustomRoute({
         name,
         stops: selectedStops,
-        isPublic: publicCheckbox.checked,
+        isPublic: isAdmin && publicCheckbox.checked,
         profile: currentProfile,
       });
       closeCreateModal();
