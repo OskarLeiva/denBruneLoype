@@ -10,7 +10,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const BAR_ZOOM = 17;
 
   const routeId = new URLSearchParams(window.location.search).get("route");
-  const activeRoute = routeId ? findRoute(routeId) : null;
+  let activeRoute = routeId ? findRoute(routeId) : null;
+  if (!activeRoute && routeId && routeId.startsWith("c")) {
+    const customRow = await fetchCustomRouteById(routeId.slice(1));
+    if (customRow) activeRoute = customRouteToRouteShape(customRow);
+  }
   const stopOrder = new Map();
   if (activeRoute) {
     activeRoute.stops.forEach((name, i) => stopOrder.set(name, i + 1));
@@ -152,15 +156,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderDay(daySelect.value);
 
   if (activeRoute) {
-    const lineCoords = activeRoute.stops.map((name) => findBar(name).coords);
+    const lineCoords = activeRoute.stops
+      .map((name) => findBar(name))
+      .filter(Boolean)
+      .map((bar) => bar.coords);
     if (activeRoute.loop) lineCoords.push(lineCoords[0]);
 
-    L.polyline(lineCoords, {
-      color: "#e8a33d",
-      weight: 3,
-      opacity: 0.85,
-      dashArray: "8 8",
-    }).addTo(map);
+    if (lineCoords.length >= 2) {
+      L.polyline(lineCoords, {
+        color: "#e8a33d",
+        weight: 3,
+        opacity: 0.85,
+        dashArray: "8 8",
+      }).addTo(map);
+    }
 
     const info = document.getElementById("route-info");
     document.getElementById("route-info-name").textContent = activeRoute.name;

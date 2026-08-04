@@ -28,10 +28,24 @@
   <main>
     <section class="content-section">
       <div class="container">
-        <h3>Løyper</h3>
+        <div class="route-section-header">
+          <h3>Løyper</h3>
+          <button type="button" class="btn" id="create-route-btn">Lag løype</button>
+        </div>
         <p>Her kan du finne forslag til i hvilken rekkefølge du kan besøke barene. Velg en løype for å se rekkefølgen.</p>
 
+        <h4 class="route-section-title">Faste løyper</h4>
         <div class="route-options" id="route-options"></div>
+
+        <h4 class="route-section-title">Offentlige løyper</h4>
+        <p class="route-section-empty" id="public-routes-empty">Ingen offentlige løyper ennå.</p>
+        <div class="route-options" id="public-route-options"></div>
+
+        <div id="private-routes-section">
+          <h4 class="route-section-title">Mine private løyper</h4>
+          <p class="route-section-empty" id="private-routes-empty">Du har ingen private løyper ennå.</p>
+          <div class="route-options" id="private-route-options"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -49,6 +63,39 @@
       <p class="route-meta" id="route-modal-meta"></p>
       <ol class="route-list" id="route-modal-stops"></ol>
       <a href="#" id="route-modal-map-link" class="btn">Åpne i kart</a>
+      <button type="button" class="btn btn-danger" id="route-modal-delete" style="display: none;">Slett løype</button>
+    </div>
+  </div>
+
+  <div class="route-modal-overlay" id="create-route-overlay">
+    <div class="route-modal route-modal-wide">
+      <button type="button" class="route-modal-close" id="create-route-close" aria-label="Lukk">&times;</button>
+      <h4>Lag løype</h4>
+
+      <div class="auth-field">
+        <label for="create-route-name">Navn på løypen</label>
+        <input type="text" id="create-route-name" maxlength="60" placeholder="F.eks. Kveldens runde">
+      </div>
+
+      <label class="checkbox-field">
+        <input type="checkbox" id="create-route-public">
+        Gjør løypen offentlig (synlig for alle)
+      </label>
+
+      <div class="route-builder">
+        <div class="route-builder-column">
+          <h5>Tilgjengelige barer</h5>
+          <ul class="bar-picker-list" id="available-bars-list"></ul>
+        </div>
+        <div class="route-builder-column">
+          <h5>Din rute (<span id="selected-count">0</span> barer &middot; ca. <span id="selected-distance">0</span> km)</h5>
+          <ol class="bar-picker-list" id="selected-bars-list"></ol>
+        </div>
+      </div>
+
+      <p class="auth-message error" id="create-route-error" style="display: none;"></p>
+
+      <button type="button" class="btn" id="save-route-btn">Lagre løype</button>
     </div>
   </div>
 
@@ -57,6 +104,7 @@
   <script src="js/auth.js"></script>
   <script src="js/bars.js"></script>
   <script src="js/routes.js"></script>
+  <script src="js/customRoutes.js"></script>
   <script src="js/loyper.js"></script>
   <script src="js/script.js"></script>
 </body>
