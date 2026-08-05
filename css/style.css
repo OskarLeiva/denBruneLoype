@@ -116,6 +116,38 @@ body {
   color: #6b3e1e;
 }
 
+.om-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.om-photo {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .om-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.om-source {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #7a6a58;
+}
+
+.om-source a {
+  color: #6b3e1e;
+}
+
 .route-options {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
