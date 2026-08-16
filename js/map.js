@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return `<a href="login.html" class="btn btn-small">Logg inn for å sjekke inn</a>`;
     }
     return `
+      <textarea class="checkin-comment" placeholder="Legg til en kommentar (valgfritt)" maxlength="280"></textarea>
       <button type="button" class="btn btn-small checkin-btn">Sjekk inn</button>
       <p class="checkin-status"></p>
     `;
@@ -100,6 +101,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const btn = e.target.closest(".checkin-btn");
         if (!btn) return;
 
+        const commentEl = popupEl.querySelector(".checkin-comment");
+        const comment = commentEl ? commentEl.value.trim() : "";
+
         btn.disabled = true;
         btn.textContent = "Henter posisjon...";
         const statusEl = popupEl.querySelector(".checkin-status");
@@ -107,7 +111,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         statusEl.className = "checkin-status";
 
         try {
-          await checkInToBar(bar.name);
+          await checkInToBar(bar.name, comment);
           leaderboards = await fetchLeaderboards();
           marker.setPopupContent(buildPopupHtml(bar, daySelect.value));
           const newStatusEl = popupEl.querySelector(".checkin-status");

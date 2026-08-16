@@ -21,12 +21,13 @@ function getCurrentLocation() {
   });
 }
 
-async function checkInToBar(barName) {
+async function checkInToBar(barName, comment) {
   const coords = await getCurrentLocation();
   const { data, error } = await sb.rpc("check_in", {
     p_bar_name: barName,
     p_lat: coords.latitude,
     p_lng: coords.longitude,
+    p_comment: comment || null,
   });
   if (error) throw new Error(error.message);
   return data;

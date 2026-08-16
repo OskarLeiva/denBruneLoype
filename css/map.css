@@ -165,6 +165,25 @@
   margin: 0;
 }
 
+.checkin-comment {
+  display: block;
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background-color: #1a1410;
+  border: 1px solid #472e17;
+  border-radius: 4px;
+  color: #faf6f0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 2.4rem;
+}
+
+.checkin-comment::placeholder {
+  color: #8a7a68;
+}
+
 .bar-popup .btn-small {
   display: inline-block;
   margin-top: 0.75rem;

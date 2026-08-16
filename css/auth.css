@@ -110,3 +110,16 @@
 .pending-approve-btn {
   border: none;
 }
+
+.checkin-item {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.checkin-item-comment {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #4a3a2a;
+  margin: 0;
+}
