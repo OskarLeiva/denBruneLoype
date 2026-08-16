@@ -111,6 +111,40 @@
   border: none;
 }
 
+.streak-summary {
+  font-size: 0.95rem;
+  color: #7a6a58;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.streak-summary.active {
+  color: #d9722c;
+  font-weight: 700;
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.route-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #e8a33d;
+  color: #2b1d0e;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+
+.route-badge::before {
+  content: "🏆";
+}
+
 .checkin-item {
   flex-direction: column;
   align-items: flex-start;

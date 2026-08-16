@@ -16,7 +16,6 @@
           <li><a href="index.html#hjem">Hjem</a></li>
           <li><a href="index.html#om">Om</a></li>
           <li><a href="loyper.html">Løyper</a></li>
-          <li><a href="index.html#kontakt">Kontakt</a></li>
           <li id="admin-nav-item" style="display: none;"><a href="brukerforesporsler.html">Brukerforespørsler</a></li>
           <li id="dashboard-nav-item" style="display: none;"><a href="mine-innsjekkinger.html">Mine innsjekkinger</a></li>
           <li><a href="login.html" id="auth-nav-link">Logg inn</a></li>
@@ -31,6 +30,8 @@
       <div class="container">
         <h3>Mine innsjekkinger</h3>
         <p id="checkin-summary"></p>
+        <p id="streak-summary"></p>
+        <div class="badge-list" id="badge-list"></div>
         <ul class="pending-list" id="checkin-list"></ul>
         <p id="checkin-empty" style="display: none;">Du har ikke sjekket inn noen steder ennå.</p>
       </div>
@@ -46,6 +47,7 @@
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   <script src="js/supabaseClient.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/bars.js"></script>
   <script src="js/mine-innsjekkinger.js"></script>
   <script src="js/script.js"></script>
 </body>
