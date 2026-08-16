@@ -94,6 +94,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     marker.on("popupopen", () => {
       const popupEl = marker.getPopup().getElement();
 
+      // Leaflet reuses the same popup DOM element across repeated
+      // open/close cycles on a marker, so guard against attaching the
+      // click listener more than once (which would fire the check-in twice).
+      if (popupEl.dataset.checkinBound) return;
+      popupEl.dataset.checkinBound = "true";
+
       // Delegate on the (stable) popup container instead of the button
       // itself, since setPopupContent() below replaces the button element
       // each time the leaderboard/status text updates.
