@@ -63,6 +63,48 @@ body {
   text-decoration: underline;
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-header nav {
+    display: none;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .site-header nav.nav-open {
+    display: block;
+  }
+
+  .site-header nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-header nav li {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .site-header nav a {
+    display: block;
+    padding: 0.85rem 0.25rem;
+  }
+}
+
 .hero {
   background-color: #a9744f;
   color: #fff;
